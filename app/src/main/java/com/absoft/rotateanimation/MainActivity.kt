@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private var frontDegree = 0
     private var backDegree = 0
+    private var translationXVal = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,14 +45,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.iv_end_up -> {
                 backDegree += 10
+                translationXVal += 12
                 binding.view3.animate().setDuration(ANIM_DURATION).rotation(-backDegree.toFloat())
                 binding.view4.animate().setDuration(ANIM_DURATION).rotation(backDegree.toFloat())
+                    .translationXBy(-translationXVal.toFloat())
                 handleBackButtons()
             }
             R.id.iv_end_down -> {
                 backDegree -= 10
                 binding.view3.animate().setDuration(ANIM_DURATION).rotation(-backDegree.toFloat())
                 binding.view4.animate().setDuration(ANIM_DURATION).rotation(backDegree.toFloat())
+                    .translationXBy(translationXVal.toFloat())
+                translationXVal -= 12
                 handleBackButtons()
             }
         }
@@ -68,7 +73,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     companion object {
-        const val MAX_ROTATION = 45
+        const val MAX_ROTATION = 90
         const val ANIM_DURATION = 1500L
     }
 }
