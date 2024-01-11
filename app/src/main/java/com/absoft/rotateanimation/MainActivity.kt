@@ -155,13 +155,16 @@ class MainActivity : AppCompatActivity(), MultiFunctionalTouchListener.EventList
     }
 
     override fun onHoldStart(v: View?) {
-        binding.tvFrontDegree.visibility = View.VISIBLE
-        binding.tvFrontDegree.animate().setDuration(ANIM_DURATION).alpha(1f)
-        super.onHoldStart(v)
+        if (v?.id == R.id.iv_front_up) {
+            binding.tvFrontDegree.visibility = View.VISIBLE
+            binding.tvFrontDegree.animate().setDuration(ANIM_DURATION).alpha(1f)
+        }
     }
 
     override fun onHoldEnd(v: View?) {
-        binding.tvFrontDegree.animate().setDuration(ANIM_DURATION).alpha(0f)
+        if (v?.id == R.id.iv_front_up) {
+            binding.tvFrontDegree.animate().setDuration(ANIM_DURATION).alpha(0f)
+        }
         super.onHoldEnd(v)
     }
 
