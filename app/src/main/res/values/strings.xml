@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Rotate Animation</string>
+    <string name="rail_up">Rail Up</string>
+    <string name="rail_down">Rail Down</string>
 </resources>
